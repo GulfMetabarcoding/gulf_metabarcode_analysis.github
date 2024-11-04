@@ -6,15 +6,15 @@
 #R packages are stored
 # make one here:
 
-# /dpdpsnm/home/knuste/R_packages_for_Rv4_4_0
+# mkdir /dpdpsnm/home/knuste/R_packages_for_Rv4_4_0
 
 # load the R module
-# $ 
-# module load tools
-# module load gcc/12.2.0
-# module load intel/basekit/INITIALIZE/2023.0.0
-# module load intel/basekit/mkl/2023.0.0
-# module load R/4.4.0
+
+# $ module load tools
+# $ module load gcc/12.2.0
+# $ module load intel/basekit/INITIALIZE/2023.0.0
+# $ module load intel/basekit/mkl/2023.0.0
+# $ module load R/4.4.0
 
 # # I will try installing for Rv4_4
 # # Start out by making a directory where all the packages can be placed inside
@@ -36,7 +36,7 @@
 
 # # Run this line in R to specify the path to where you want the packages to placed:
 
-# lib_path01 <- "/dpdpsnm/home/knuste/R_packages_for_Rv4_4_0"
+    # lib_path01 <- "/dpdpsnm/home/knuste/R_packages_for_Rv4_4_0"
 
 # # Continue by running these lines, one by one in R
 # Sys.setenv(R_LIBS_USER="lib_path01")
@@ -49,8 +49,37 @@
 ## Or try pasting one long line with all commands, and installation of the 'taxizedb' library #
 # lib_path01 <- "/dpdpsnm/home/knuste/R_packages_for_Rv4_4_0"; Sys.setenv(R_LIBS_USER="lib_path01"); .libPaths("lib_path01"); .libPaths( c( lib_path01 , .libPaths() ) ); .libPaths(); .libPaths( c( lib_path01) ); install.packages(c("taxizedb", "taxize", "tidyverse", "readxl", "worms", "stringr", "dplyr"))
 
+# # The 'taxizedb' is only available from the archive. So you will need to download the tarball from the CRAN archive
+# ## Download package tarball from CRAN archive
+# url <- "http://cran.r-project.org/src/contrib/Archive/taxizedb/taxizedb_0.3.1.tar.gz"
+# pkgFile <- "taxizedb_0.3.1.tar.gz"
+# download.file(url = url, destfile = pkgFile)
+# # Expand the zip file using whatever system functions are preferred
+# # look at the DESCRIPTION file in the expanded package directory
+# # Install dependencies list in the DESCRIPTION file
+# #install.packages(c("ada", "ipred", "evd"))
+# # Install package
+# lib_path01 <- "/dpdpsnm/home/knuste/R_packages_for_Rv4_4_0"; Sys.setenv(R_LIBS_USER="lib_path01"); .libPaths("lib_path01"); .libPaths( c( lib_path01 , .libPaths() ) ); .libPaths(); .libPaths( c( lib_path01) );  install.packages(pkgs=pkgFile, type="source", repos=NULL)
+# # Delete package tarball
+# unlink(pkgFile)
+# 
+# # The 'taxizedb' is only available from the archive. So you will need to download the tarball from the CRAN archive
+# ## Download package tarball from CRAN archive
+# url <- "http://cran.r-project.org/src/contrib/Archive/taxize/taxize_0.9.100.1.tar.gz"
+# pkgFile <- "taxize_0.9.100.1.tar.gz"
+# download.file(url = url, destfile = pkgFile)
+# # Expand the zip file using whatever system functions are preferred
+# # look at the DESCRIPTION file in the expanded package directory
+# # Install dependencies list in the DESCRIPTION file
+# #install.packages(c("ada", "ipred", "evd"))
+# # Install package
+# lib_path01 <- "/dpdpsnm/home/knuste/R_packages_for_Rv4_4_0"; Sys.setenv(R_LIBS_USER="lib_path01"); .libPaths("lib_path01"); .libPaths( c( lib_path01 , .libPaths() ) ); .libPaths(); .libPaths( c( lib_path01) );  install.packages(pkgs=pkgFile, type="source", repos=NULL)
+# # Delete package tarball
+# unlink(pkgFile)
+
+
 ## Use this line here below to install a lot of packages needed for doing population genetic analysis
-# lib_path01 <- "/dpdpsnm/home/knuste/R_packages_for_Rv4_4_0"; Sys.setenv(R_LIBS_USER="lib_path01"); .libPaths("lib_path01"); .libPaths( c( lib_path01 , .libPaths() ) ); .libPaths(); .libPaths( c( lib_path01) ); if(!require("gaston")){install.packages("gaston", dependencies = TRUE, INSTALL_opts = '--no-lock')};if(!require("hierfstat")){install.packages("hierfstat", dependencies = TRUE, INSTALL_opts = '--no-lock')};if(!require("pegas")){install.packages("pegas")};if(!require("ips")){install.packages("ips", dependencies = TRUE, INSTALL_opts = '--no-lock')};if(!require("tidyverse")){install.packages("tidyverse", dependencies = TRUE, INSTALL_opts = '--no-lock')};if(!require("pals")){install.packages("pals", dependencies = TRUE, INSTALL_opts = '--no-lock')};if(!require(adegenet)){install.packages("adegenet", repos='http://cran.us.r-project.org') };if(!require(apex)){install.packages("apex", repos='http://cran.us.r-project.org') };if(!require(mmod)){install.packages("mmod", repos='http://cran.us.r-project.org') };if(!require(tidyverse)){install.packages("tidyverse", repos='http://cran.us.r-project.org') };if(!require(pals)){install.packages("pals", repos='http://cran.us.r-project.org') };if(!require(ape)){install.packages("ape", repos='http://cran.us.r-project.org') };if(!require(RColorBrewer)) {install.packages("RColorBrewer", repos='http://cran.us.r-project.org') };if(!require(stringi)){install.packages("stringi", repos='http://cran.us.r-project.org') };if(!require(poppr)){install.packages("poppr", repos='http://cran.us.r-project.org') };if(!require(vegan)){install.packages("vegan", repos='http://cran.us.r-project.org')};if(!require(adegenet)){install.packages("adegenet", repos='http://cran.us.r-project.org')};if(!require(biogeo)){install.packages("biogeo", repos='http://cran.us.r-project.org') }
+# lib_path01 <- "/dpdpsnm/home/knuste/R_packages_for_Rv4_4_0"; Sys.setenv(R_LIBS_USER="lib_path01"); .libPaths("lib_path01"); .libPaths( c( lib_path01 , .libPaths() ) ); .libPaths(); .libPaths( c( lib_path01) ); if(!require("gaston")){install.packages("gaston", dependencies = TRUE, INSTALL_opts = '--no-lock')};if(!require("hierfstat")){install.packages("hierfstat", dependencies = TRUE, INSTALL_opts = '--no-lock')};if(!require("pegas")){install.packages("pegas")};if(!require("ips")){install.packages("ips", dependencies = TRUE, INSTALL_opts = '--no-lock')};if(!require("tidyverse")){install.packages("tidyverse", dependencies = TRUE, INSTALL_opts = '--no-lock')};if(!require("pals")){install.packages("pals", dependencies = TRUE, INSTALL_opts = '--no-lock')};if(!require(adegenet)){install.packages("adegenet", repos='http://cran.us.r-project.org') };if(!require(apex)){install.packages("apex", repos='http://cran.us.r-project.org') };if(!require(mmod)){install.packages("mmod", repos='http://cran.us.r-project.org') };if(!require(tidyverse)){install.packages("tidyverse", repos='http://cran.us.r-project.org') };if(!require(pals)){install.packages("pals", repos='http://cran.us.r-project.org') };if(!require(ape)){install.packages("ape", repos='http://cran.us.r-project.org') };if(!require(RColorBrewer)) {install.packages("RColorBrewer", repos='http://cran.us.r-project.org') };if(!require(stringi)){install.packages("stringi", repos='http://cran.us.r-project.org') };if(!require(poppr)){install.packages("poppr", repos='http://cran.us.r-project.org') };if(!require(vegan)){install.packages("vegan", repos='http://cran.us.r-project.org')};if(!require(adegenet)){install.packages("adegenet", repos='http://cran.us.r-project.org')}
 ## Use this line here below to install a lot of packages needed for doing mapping
 # lib_path01 <- "/dpdpsnm/home/knuste/R_packages_for_Rv4_4_0"; Sys.setenv(R_LIBS_USER="lib_path01"); .libPaths("lib_path01"); .libPaths( c( lib_path01 , .libPaths() ) ); .libPaths(); .libPaths( c( lib_path01) ); if(!require(scales)){  install.packages("scales")};if(!require(fields)){  install.packages("fields")};if(!require(marmap)){  install.packages("marmap")};if(!require(TeachingDemos)){  install.packages("TeachingDemos")};if(!require(rworldmap)){  install.packages("rworldmap")};if(!require(rworldxtra)){  install.packages("rworldxtra")};require(rworldxtra);if(!require(readxl)){  install.packages("readxl")};if(!require(plyr)){  install.packages("plyr")};if(!require(mapdata)){  install.packages("mapdata")};if(!require(maps)){  install.packages("maps")};if(!require(mapplots)){  install.packages("mapplots")}; if(!require(purrr)){  install.packages("purrr")}
 
@@ -118,8 +147,8 @@ Sys.setenv(R_LIBS_USER="lib_path01")
 
 # download the NCBI database
 
-R
+#R
 
-library("taxizedb")
+#library("taxizedb")
 
-db_download_ncbi() 
+#db_download_ncbi() 
